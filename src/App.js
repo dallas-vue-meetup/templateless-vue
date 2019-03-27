@@ -8,6 +8,7 @@ const theme = {
   lightGrey: '#adadad',
   green: '#4ebe8c',
   red: '#f07078',
+  blue: '#4dd0e1',
 };
 
 const fontWeight = 300;
@@ -21,19 +22,19 @@ const AppStyles = styled.div`
   h1 {
     font-size: 4rem;
     font-weight: ${fontWeight};
-    margin: 1rem;
+    margin: 0.5rem;
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: ${fontWeight};
-    margin: 1rem;
+    margin: 0;
   }
 
   h3 {
     font-size: 2rem;
     font-weight: ${fontWeight};
-    margin: 1rem;
+    margin: 0;
   }
 `;
 

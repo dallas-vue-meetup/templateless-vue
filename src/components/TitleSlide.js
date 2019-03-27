@@ -6,7 +6,9 @@ const TitleSlide = ({ props }) => (
   <Slide>
     <img alt="Vue logo" src={logo} />
     <h1>{props.title}</h1>
-    <Subheading>{props.subtitle}</Subheading>
+    {props.subtitles.map(text => (
+      <Subheading id={text}>{text}</Subheading>
+    ))}
   </Slide>
 );
 
