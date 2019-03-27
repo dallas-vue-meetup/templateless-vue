@@ -16,6 +16,9 @@ const slides = [
     ],
     component: 'ListSlide',
   },
+  {
+    component: 'CodeSlide',
+  },
 ];
 
 export default slides;

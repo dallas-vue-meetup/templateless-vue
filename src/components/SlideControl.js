@@ -2,6 +2,7 @@ import slides from '@/slides';
 import TitleSlide from './TitleSlide';
 import ListSlide from './ListSlide';
 import { withHooks, useData } from 'vue-hooks';
+import CodeSlide from './CodeSlide';
 
 const SlideControl = withHooks(h => {
   let data = useData({
@@ -28,6 +29,8 @@ const SlideControl = withHooks(h => {
       return <TitleSlide title={slide.title} subtitles={slide.subtitles} />;
     case 'ListSlide':
       return <ListSlide title={slide.title} list={slide.list} />;
+    case 'CodeSlide':
+      return <CodeSlide />;
     default:
       return <h1>No slide with component: {slide.component}</h1>;
   }

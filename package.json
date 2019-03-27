@@ -10,6 +10,7 @@
   "dependencies": {
     "vue": "^2.6.6",
     "vue-hooks": "^0.3.2",
+    "vue-prism-component": "^1.1.1",
     "vue-styled-components": "^1.4.4"
   },
   "devDependencies": {
