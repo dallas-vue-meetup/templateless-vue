@@ -24,13 +24,15 @@ const SlideControl = withHooks(h => {
 
   const slide = slides[data.currentSlide];
 
+  // TODO: tw - figure out how to spread these props
+
   switch (slide.component) {
     case 'TitleSlide':
       return <TitleSlide title={slide.title} subtitles={slide.subtitles} />;
     case 'ListSlide':
       return <ListSlide title={slide.title} list={slide.list} />;
     case 'CodeSlide':
-      return <CodeSlide />;
+      return <CodeSlide title={slide.title} code={slide.code} />;
     default:
       return <h1>No slide with component: {slide.component}</h1>;
   }
