@@ -7,6 +7,15 @@ const slides = [
       'https://github.com/dallas-vue-meetup/templateless-vue',
     ],
   },
+  {
+    title: 'Hello There',
+    list: [
+      'A surprise to be sure',
+      'But a welcome one',
+      'The prequels have the best memes',
+    ],
+    component: 'ListSlide',
+  },
 ];
 
 export default slides;
