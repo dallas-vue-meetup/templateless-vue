@@ -11,7 +11,7 @@ const CodeBlock = styled.div`
   background: ${props => props.theme.mediumGrey};
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 4px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 
   .buttons {
     display: 'flex';
@@ -47,11 +47,15 @@ const CodeBlock = styled.div`
   }
 
   code {
-    font-family: 'Ubuntu Mono';
+    * {
+      font-family: 'Ubuntu Mono';
+      font-size: 1.5rem;
+    }
   }
 `;
 
 const CodeSlide = ({ props }) => {
+  console.log(arguments);
   return (
     <Slide>
       <CodeWrapper>
