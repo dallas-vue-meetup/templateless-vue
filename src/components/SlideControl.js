@@ -26,11 +26,11 @@ const SlideControl = withHooks(h => {
 
   switch (slide.component) {
     case 'TitleSlide':
-      return <TitleSlide props={{...slide}} />;
+      return <TitleSlide props={{ ...slide }} />;
     case 'ListSlide':
-      return <ListSlide props={{...slide}} />;
+      return <ListSlide props={{ ...slide }} />;
     case 'CodeSlide':
-      return <CodeSlide title={slide.title} list={slide.list} />;
+      return <CodeSlide props={{ ...slide }} />;
     default:
       return <h1>Component does not exist: {slide.component}</h1>;
   }

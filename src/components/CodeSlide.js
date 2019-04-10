@@ -17,20 +17,24 @@ const CodeBlock = styled.div`
   border-radius: 4px;
   font-size: 1.25rem;
   margin: 0 2rem;
+  flex: 1;
 
   .buttons {
     display: 'flex';
     width: 5em;
-    justify-content: space-around;
-    padding: 0.5em 0.75em;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    background: #47494e;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
   }
 
   .window-btn {
     content: '';
-    height: 0.75em;
-    width: 0.75em;
+    height: 1rem;
+    width: 1rem;
     display: block;
     border-radius: 50%;
+    margin-right: 0.5em;
   }
 
   .window-btn:first-child {
@@ -43,6 +47,10 @@ const CodeBlock = styled.div`
 
   .window-btn:nth-child(3) {
     background: limegreen;
+  }
+
+  .fill {
+    flex: 1;
   }
 
   pre {
@@ -59,21 +67,32 @@ const CodeBlock = styled.div`
   }
 `;
 
+const Row = styled.div`
+  display: flex;
+`;
+
+const CodeWindow = ({ props }) => (
+  <CodeBlock>
+    {/* buttons */}
+    <div class="buttons">
+      <span class="window-btn" />
+      <span class="window-btn" />
+      <span class="window-btn" />
+      <span class="fill" />
+    </div>
+    <Prism language="jsx">{props.code}</Prism>
+  </CodeBlock>
+);
+
 const CodeSlide = ({ props }) => {
-  console.log(arguments);
   return (
     <Slide>
       <CodeWrapper>
         <h1>{props.title}</h1>
-        <CodeBlock>
-          {/* buttons */}
-          <div class="buttons">
-            <span class="window-btn" />
-            <span class="window-btn" />
-            <span class="window-btn" />
-          </div>
-          <Prism language="jsx">{props.code}</Prism>
-        </CodeBlock>
+        <Row>
+          <CodeWindow code={props.code} />
+          {props.code2 && <CodeWindow code={props.code2} />}
+        </Row>
       </CodeWrapper>
     </Slide>
   );

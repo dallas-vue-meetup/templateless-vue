@@ -8,7 +8,8 @@ const slides = [
     ],
   },
   {
-    title: '"I don\'t want to use Vue because I don\'t like templates." - A React Dev',
+    title:
+      '"I don\'t want to use Vue because I don\'t like templates." - A React Dev',
     list: [
       "Great! That's totally fine!",
       'JSX comes out of the box with vue-cli',
@@ -22,26 +23,8 @@ const slides = [
       'First party support of routing and state management',
       'Mutable data',
       "Vue 3's performance",
-      'No Vetur plugin',
     ],
     component: 'ListSlide',
-  },
-  {
-    component: 'CodeSlide',
-    title: 'What is JSX?',
-    code: `
-export default {
-  render() {
-    return (
-      <div>
-        <h1>Hello There</h1>
-        <p>A surprise to be sure, but a welcome one.</p>
-        {emoji ? (<img src="picachu-surprised.png" />) : null}
-      </div>
-    )
-  }
-}
-      `,
   },
   {
     component: 'CodeSlide',
@@ -57,12 +40,16 @@ export default {
   methods: {
     increment() {
       this.count++;
+    },
+    decrement() {
+      this.count--;
     }
   },
   render() {
     return (
       <div>
         Count: {this.count}
+        <button onClick={this.decrement}>-</button>
         <button onClick={this.increment}>+</button>
       </div>
     )
@@ -72,14 +59,16 @@ export default {
   },
   {
     component: 'CodeSlide',
-    title: 'Functional Components are More Intuitive',
+    title: 'Components as a Function',
     code: `
-const MyComponent = ({ props }) => (
+const TodoList = ({ props }) => (
   <div>
     <h3>My List</h3>
     <ul>
-      {props.list.map(item => (
-        <li key={item}>{item}</li>
+      {props.todos.map(todo => (
+        <li key={todo.id}>
+          {todo.text}
+        </li>
       ))}
     </ul>
   </div>
@@ -88,23 +77,54 @@ const MyComponent = ({ props }) => (
   },
   {
     component: 'CodeSlide',
-    title: 'Alternative to slots: Render Props',
+    title: 'Render Props Instead of Slots',
     code: `
-const CardComponent = ({ props }) => (
-  <div class="card">
-    <header>{props.header}</header>
-    <section>{props.body}</section>
-  </div>
-)
-
-const ComponentUsingCard = ({ props }) => (
-  <CardComponent 
-    header={() => (<h1>My Header</h1>)}
-    body={() => (
-      <div>Content</div>
-    )}
-    />
-);
+const MyModal = {
+  name: 'MyModal',
+  data() {
+    return {
+      open: false,
+    };
+  },
+  props: ['title', 'body'],
+  methods: {
+    open() { this.open = true; },
+    close() { this.open = false; },
+  },
+  render() {
+    return (
+      <div>
+        <button onClick={this.open}>Open</button>
+        {this.open &&
+          <div class="modal">
+            <h1>{this.title}</h1>
+            <div class="modal-body>
+              {this.body({ close: this.close })}
+            </div>
+          </div>
+        }
+      </div>
+    );
+  }
+}
+    `,
+    code2: `
+const SomeOtherComponent = {
+  name: 'SomeOtherComponent',
+  components: {
+    MyModal,
+  },
+  render() {
+    return (
+      <MyModal
+        body=({ close }) => (
+          <p>Hello World!</p>
+          <button onClick={close}>Close<button>
+        );
+      />
+    );
+  };
+};
     `,
   },
   {
@@ -129,7 +149,7 @@ const SlideControl = ({props}) => {
     `,
   },
   {
-    title: "Be warned",
+    title: 'Be warned',
     list: [
       'This is NOT recommended by the core team for most cases',
       'Code examples (specific to Vue) are few and far between',
@@ -147,7 +167,7 @@ const SlideControl = ({props}) => {
       'Can make render functions simpler',
       'If you want to see examples check out the github',
     ],
-  }
+  },
 ];
 
 export default slides;
