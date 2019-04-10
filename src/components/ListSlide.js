@@ -7,12 +7,12 @@ const ListStyle = styled.div`
   text-align: left;
 
   ul {
-    margin: 2rem;
+    margin: 2rem 0 0rem 4rem;
   }
 
   li {
     font-size: 3rem;
-    margin-bottom: 1rem;
+    padding-top: 2.5rem;
   }
 `;
 
@@ -25,6 +25,7 @@ const ListSlide = ({ props }) => (
           <li id={item}>{item}</li>
         ))}
       </ul>
+      <img src={props.image} />
     </ListStyle>
   </Slide>
 );

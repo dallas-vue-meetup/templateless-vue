@@ -8,42 +8,16 @@ const slides = [
     ],
   },
   {
-    title: "I don't want to use Vue because I don't like templates.",
+    title: '"I don\'t want to use Vue because I don\'t like templates." - A React Dev',
     list: [
       "Great! That's totally fine!",
-      'JSX is built into Vue',
-      "Templates aren't always the right answer",
+      'JSX comes out of the box with vue-cli',
+      "Even if you like them, templates aren't always the right answer",
     ],
     component: 'ListSlide',
   },
   {
-    component: 'CodeSlide',
-    title: 'Quick Example:',
-    code: `
-export default {
-  render() {
-    return (
-      <div>
-        <h1>Hello There</h1>
-        <p>A surprise to be sure, but a welcome one.</p>
-      </div>
-    )
-  }
-}
-      `,
-  },
-  {
-    title: "It's dangerous to go alone",
-    list: [
-      'This is NOT recommended by the core team for most cases',
-      'Code examples are few and far between',
-      "You can't use directives",
-      "Slots don't work as expected",
-    ],
-    component: 'ListSlide',
-  },
-  {
-    title: 'But if templates are what is holding you back',
+    title: 'But if templates are what is holding you back:',
     list: [
       'First party support of routing and state management',
       'Mutable data',
@@ -51,6 +25,23 @@ export default {
       'No Vetur plugin',
     ],
     component: 'ListSlide',
+  },
+  {
+    component: 'CodeSlide',
+    title: 'What is JSX?',
+    code: `
+export default {
+  render() {
+    return (
+      <div>
+        <h1>Hello There</h1>
+        <p>A surprise to be sure, but a welcome one.</p>
+        {emoji ? (<img src="picachu-surprised.png" />) : null}
+      </div>
+    )
+  }
+}
+      `,
   },
   {
     component: 'CodeSlide',
@@ -81,7 +72,7 @@ export default {
   },
   {
     component: 'CodeSlide',
-    title: 'Functional Components',
+    title: 'Functional Components are More Intuitive',
     code: `
 const MyComponent = ({ props }) => (
   <div>
@@ -97,15 +88,66 @@ const MyComponent = ({ props }) => (
   },
   {
     component: 'CodeSlide',
-    title: 'Render Props',
+    title: 'Alternative to slots: Render Props',
     code: `
-const ComponentWithRenderProps = ({ props }) => (
-  <div class="some-styling">
-    {props.myContent}
+const CardComponent = ({ props }) => (
+  <div class="card">
+    <header>{props.header}</header>
+    <section>{props.body}</section>
   </div>
 )
+
+const ComponentUsingCard = ({ props }) => (
+  <CardComponent 
+    header={() => (<h1>My Header</h1>)}
+    body={() => (
+      <div>Content</div>
+    )}
+    />
+);
     `,
   },
+  {
+    component: 'CodeSlide',
+    title: 'Benefits of JSX over templates in Vue',
+    code: `
+const SlideControl = ({props}) => {
+
+  // ...
+
+  switch (slide.component) {
+    case 'TitleSlide':
+      return <TitleSlide title={slide.title} subtitles={slide.subtitles} />;
+    case 'ListSlide':
+      return <ListSlide title={slide.title} list={slide.list} />;
+    case 'CodeSlide':
+      return <CodeSlide title={slide.title} code={slide.code} />;
+    default:
+      return <h1>Component does not exist: {slide.component}</h1>;
+  }
+};
+    `,
+  },
+  {
+    title: "Be warned",
+    list: [
+      'This is NOT recommended by the core team for most cases',
+      'Code examples (specific to Vue) are few and far between',
+      "You can't use directives *",
+      "Slots don't work as expected",
+    ],
+    component: 'ListSlide',
+  },
+  {
+    component: 'ListSlide',
+    title: 'In Summary',
+    list: [
+      'In many ways JSX and Vetur files have are similar',
+      'With Vue 3 coming soon, it may be a great alternative to React',
+      'Can make render functions simpler',
+      'If you want to see examples check out the github',
+    ],
+  }
 ];
 
 export default slides;

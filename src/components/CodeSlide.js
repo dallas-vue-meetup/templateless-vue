@@ -5,6 +5,10 @@ import Slide from './Slide';
 const CodeWrapper = styled.div`
   height: 80vh;
   width: 85vw;
+
+  h1 {
+    padding-bottom: 1rem;
+  }
 `;
 
 const CodeBlock = styled.div`
@@ -12,6 +16,7 @@ const CodeBlock = styled.div`
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 4px;
   font-size: 1.25rem;
+  margin: 0 2rem;
 
   .buttons {
     display: 'flex';
