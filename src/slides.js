@@ -59,24 +59,6 @@ export default {
   },
   {
     component: 'CodeSlide',
-    title: 'Components as a Function',
-    code: `
-const TodoList = ({ props }) => (
-  <div>
-    <h3>My List</h3>
-    <ul>
-      {props.todos.map(todo => (
-        <li key={todo.id}>
-          {todo.text}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-    `,
-  },
-  {
-    component: 'CodeSlide',
     title: 'Render Props Instead of Slots',
     code: `
 const MyModal = {
@@ -129,7 +111,34 @@ const SomeOtherComponent = {
   },
   {
     component: 'CodeSlide',
-    title: 'Benefits of JSX over templates in Vue',
+    title: 'Components as a Function',
+    code: `
+const TodoList = ({ props }) => (
+  <div>
+    <h3>My List</h3>
+    <ul>
+      {props.todos.map(todo => (
+        <li key={todo.id}>
+          {todo.text}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+  `,
+  },
+  {
+    title: 'Benefits of JSX Over Templates',
+    list: [
+      'Typescript support is much better with JSX',
+      'Using different editors can be simpler',
+      'Complex branching is much simpler',
+    ],
+    component: 'ListSlide',
+  },
+  {
+    component: 'CodeSlide',
+    title: 'Benefits of JSX Over Templates',
     code: `
 const SlideControl = ({props}) => {
 
@@ -137,19 +146,19 @@ const SlideControl = ({props}) => {
 
   switch (slide.component) {
     case 'TitleSlide':
-      return <TitleSlide title={slide.title} subtitles={slide.subtitles} />;
+      return <TitleSlide props={{ ...slide }} />;
     case 'ListSlide':
-      return <ListSlide title={slide.title} list={slide.list} />;
+      return <ListSlide props={{ ...slide }} />;
     case 'CodeSlide':
-      return <CodeSlide title={slide.title} code={slide.code} />;
+      return <CodeSlide props={{ ...slide }} />;
     default:
       return <h1>Component does not exist: {slide.component}</h1>;
   }
 };
-    `,
+  `,
   },
   {
-    title: 'Be warned',
+    title: 'Disadvantages of JSX Over Templates',
     list: [
       'This is NOT recommended by the core team for most cases',
       'Code examples (specific to Vue) are few and far between',
@@ -162,7 +171,7 @@ const SlideControl = ({props}) => {
     component: 'ListSlide',
     title: 'In Summary',
     list: [
-      'In many ways JSX and Vetur files have are similar',
+      'Philisophically JSX and .vue files are similar',
       'With Vue 3 coming soon, it may be a great alternative to React',
       'Can make render functions simpler',
       'If you want to see examples check out the github',

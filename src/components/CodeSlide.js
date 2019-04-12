@@ -3,7 +3,7 @@ import styled from 'vue-styled-components';
 import Slide from './Slide';
 
 const CodeWrapper = styled.div`
-  height: 80vh;
+  min-height: 80vh;
   width: 85vw;
 
   h1 {
