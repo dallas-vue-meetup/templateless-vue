@@ -11,7 +11,7 @@ const ListStyle = styled.div`
   }
 
   li {
-    font-size: 3rem;
+    font-size: 3.5rem;
     padding-top: 2.5rem;
   }
 `;

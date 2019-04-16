@@ -80,7 +80,7 @@ const MyModal = {
         {this.open &&
           <div class="modal">
             <h1>{this.title}</h1>
-            <div class="modal-body>
+            <div class="modal-body">
               {this.body({ close: this.close })}
             </div>
           </div>
@@ -99,9 +99,12 @@ const SomeOtherComponent = {
   render() {
     return (
       <MyModal
+        title="My Custom Modal"
         body=({ close }) => (
-          <p>Hello World!</p>
-          <button onClick={close}>Close<button>
+          <div>
+            <p>Hello World!</p>
+            <button onClick={close}>Close<button>
+          </div>
         );
       />
     );

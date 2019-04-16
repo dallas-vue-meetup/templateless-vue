@@ -21,13 +21,13 @@ const AppStyles = styled.div`
   }
 
   h1 {
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: ${fontWeight};
     margin: 0.5rem;
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: ${fontWeight};
     margin: 0;
   }

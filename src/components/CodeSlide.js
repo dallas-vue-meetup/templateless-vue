@@ -24,8 +24,8 @@ const CodeBlock = styled.div`
     width: 5em;
     padding: 0.75rem 1rem;
     width: 100%;
-    background: #47494e;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    background: #555963;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12);
   }
 
   .window-btn {
